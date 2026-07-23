@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - School Registration System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Registration</h1>
+            <p class="subtitle">Fill out the form below to register your child</p>
+        </header>
+        
+        <main>
+            <form id="registrationForm" class="registration-form">
+                <div class="form-section">
+                    <h2>Student Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="full_name">Full Name *</label>
+                        <input type="text" id="full_name" name="full_name" required>
+                        <span class="error-message" id="full_name_error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date_of_birth">Date of Birth *</label>
+                        <input type="date" id="date_of_birth" name="date_of_birth" required>
+                        <span class="error-message" id="date_of_birth_error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Gender *</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error-message" id="gender_error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="class_grade">Class/Grade Applying For *</label>
+                        <select id="class_grade" name="class_grade" required>
+                            <option value="">Select Class</option>
+                            <option value="KG">Kindergarten</option>
+                            <option value="1">Class 1</option>
+                            <option value="2">Class 2</option>
+                            <option value="3">Class 3</option>
+                            <option value="4">Class 4</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                            <option value="11">Class 11</option>
+                            <option value="12">Class 12</option>
+                        </select>
+                        <span class="error-message" id="class_grade_error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="previous_school">Previous School (Optional)</label>
+                        <input type="text" id="previous_school" name="previous_school">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo">Upload Photo (Optional)</label>
+                        <input type="file" id="photo" name="photo" accept="image/*">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2>Parent/Guardian Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="parent_name">Parent/Guardian Name *</label>
+                        <input type="text" id="parent_name" name="parent_name" required>
+                        <span class="error-message" id="parent_name_error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="parent_contact">Contact Number *</label>
+                        <input type="tel" id="parent_contact" name="parent_contact" required placeholder="e.g., 1234567890">
+                        <span class="error-message" id="parent_contact_error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="e.g., parent@example.com">
+                        <span class="error-message" id="email_error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Home Address *</label>
+                        <textarea id="address" name="address" rows="4" required></textarea>
+                        <span class="error-message" id="address_error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit Registration</button>
+                    <button type="reset" class="btn btn-secondary">Reset Form</button>
+                </div>
+            </form>
+            
+            <div id="successMessage" class="message success hidden">
+                <h3>Registration Successful!</h3>
+                <p>Your registration has been submitted successfully.</p>
+                <p>Registration ID: <strong id="registrationId"></strong></p>
+                <p>A confirmation email has been sent to your email address.</p>
+                <a href="index.html" class="btn btn-secondary">Return to Home</a>
+            </div>
+            
+            <div id="errorMessage" class="message error hidden">
+                <h3>Registration Failed</h3>
+                <p id="errorText"></p>
+                <button class="btn btn-secondary" onclick="hideError()">Try Again</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 School Registration System. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="config.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

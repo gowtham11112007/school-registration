@@ -1,0 +1,36 @@
+services:
+  # Backend Service
+  - type: web
+    name: school-registration-api
+    runtime: python
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && python app.py
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        sync: false
+      - key: SMTP_SERVER
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_EMAIL
+        sync: false
+      - key: SMTP_APP_PASSWORD
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: DEBUG
+        value: False
+
+  # Frontend Service
+  - type: web
+    name: school-registration-frontend
+    runtime: static
+    buildCommand: echo "No build needed"
+    staticPublishPath: ./frontend
+    envVars:
+      - key: API_URL
+        value: https://school-registration-api.onrender.com

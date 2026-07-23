@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - School Registration System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <p class="subtitle">Manage student registrations</p>
+        </header>
+        
+        <main>
+            <!-- Login Section -->
+            <div id="loginSection" class="login-section">
+                <form id="loginForm" class="login-form">
+                    <h2>Admin Login</h2>
+                    <div class="form-group">
+                        <label for="adminKey">Admin Key</label>
+                        <input type="password" id="adminKey" name="adminKey" required placeholder="Enter admin key">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            
+            <!-- Dashboard Section -->
+            <div id="dashboardSection" class="dashboard-section hidden">
+                <div class="dashboard-header">
+                    <div class="search-filters">
+                        <input type="text" id="searchInput" placeholder="Search by name or class...">
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="loadRegistrations()">Refresh</button>
+                    </div>
+                    <button class="btn btn-secondary" onclick="logout()">Logout</button>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>Total</h3>
+                        <p id="totalCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending</h3>
+                        <p id="pendingCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Approved</h3>
+                        <p id="approvedCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Rejected</h3>
+                        <p id="rejectedCount">0</p>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table class="registrations-table">
+                        <thead>
+                            <tr>
+                                <th>Registration ID</th>
+                                <th>Student Name</th>
+                                <th>Class</th>
+                                <th>Parent Name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrationsTableBody">
+                            <tr>
+                                <td colspan="9">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Registration Detail Modal -->
+            <div id="detailModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Registration Details</h2>
+                    <div id="modalBody"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 School Registration System. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
